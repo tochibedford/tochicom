@@ -116,7 +116,7 @@ window.addEventListener('load', () => {
         songT.children[0].children[1].textContent = "prod. " + audioMappings["beats"][beatKeys[i]]["prod"];
         songT.children[1].src = "./assets/beats/" + audioMappings["beats"][beatKeys[i]]["url"];
         songT.children[3].remove();
-        songT.children[0].children[0].classList.add("beat")
+        songT.children[0].children[0].classList.add("beat");
         if (i == beatKeys.length - 1) {
             songT.children[2].remove();
         }
@@ -198,7 +198,6 @@ window.addEventListener('load', () => {
 
         //back to Top
         toTop = document.querySelector(".toTop");
-        console.log(toTop)
         toTop.addEventListener('click', (e) => {
             scrollTo(0, 0);
         })

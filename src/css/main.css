@@ -399,7 +399,7 @@ body {
 }
 
 .welcome {
-    font-size: xx-large;
+    font-size: large;
     text-align: center;
 }
 
@@ -441,7 +441,7 @@ body {
 }
 
 .infoText {
-    font-size: 0.5em;
+    font-size: 1em;
     padding: 0.5em;
     color: #cccccc;
 }
@@ -461,12 +461,8 @@ a:hover {
     color: white;
 }
 
-.beat {
-    font-size: 3em;
-}
-
 img {
-    user-drag: none;
+    /* user-drag: none; */
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -489,4 +485,16 @@ img {
 .toTop {
     margin-right: 0.2em;
     font-size: 2em;
+}
+
+.mainText {
+    font-size: 1.3em;
+}
+
+.increase {
+    font-size: 4em;
+}
+
+.beat {
+    font-size: 10em;
 }
