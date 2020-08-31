@@ -103,7 +103,7 @@ window.addEventListener('load', () => {
     for (const key of songKeys) {
         songT = songTemplate.cloneNode(true);
         songT.children[0].children[0].textContent = audioMappings["songs"][key]["name"];
-        songT.children[0].children[1].textContent = "ft. " + audioMappings["songs"][key]["ft"];
+        songT.children[0].children[1].textContent = (audioMappings["songs"][key]["ft"] != "") ? "ft. " + audioMappings["songs"][key]["ft"] : "";
         songT.children[1].src = "./assets/music/" + audioMappings["songs"][key]["url"];
         songT.children[3].src = "./assets/imgs/" + audioMappings["songs"][key]["img"];
 
