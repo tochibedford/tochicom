@@ -310,8 +310,9 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: #000000;
-    z-index: 100;
+    background-image: var(--backGrad);
+    background-position: bottom left;
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -375,6 +376,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    touch-action: none;
 }
 
 html {
@@ -398,6 +400,7 @@ body {
 
 .welcome {
     font-size: xx-large;
+    text-align: center;
 }
 
 .songText {
@@ -417,7 +420,7 @@ body {
 .songImg {
     position: absolute;
     height: 70%;
-    opacity: 0.05;
+    opacity: 0.3;
     object-fit: contain;
 }
 
@@ -456,4 +459,34 @@ a:hover {
 
 .selected {
     color: white;
+}
+
+.beat {
+    font-size: 3em;
+}
+
+img {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.contact {
+    position: fixed;
+    bottom: 0.5em;
+    right: 0.5em;
+    font-size: 1.5em;
+    z-index: 100;
+}
+
+.contact i {
+    cursor: pointer;
+}
+
+.toTop {
+    margin-right: 0.2em;
+    font-size: 2em;
 }
