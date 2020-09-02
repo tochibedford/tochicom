@@ -382,7 +382,7 @@
     -ms-user-select: none;
     user-select: none;
     touch-action: none;
-    /* cursor: none; */
+     cursor: none; 
 }
 
 .cursorShell {
@@ -447,6 +447,7 @@ body {
 
 .down {
     /* cursor: pointer; */
+    font-size: 2em;
     z-index: 200;
     transition: color 0.5s;
 }
@@ -492,7 +493,7 @@ a {
 }
 
 a:hover {
-    color: #ccffcc;
+    color: #55aaff;
 }
 
 .selected {
