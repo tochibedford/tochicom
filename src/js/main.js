@@ -5,6 +5,56 @@ window.currView = "music";
 var toTop = document.querySelector('.toTop');
 toTop.style.opacity = 0;
 toTop.style.display = 'none';
+
+//cursor
+cursor = document.querySelector(".cursorShell");
+fuel = document.querySelector(".fuelDrop");
+fuel.remove();
+let rotation = 0;
+let prevRot = 0;
+const grav = 9.81;
+let mouseDesk = false;
+window.addEventListener("mousemove", e => {
+    //cursor rotation and movement physics
+    prevRot = rotation;
+    rotation = (Math.min(Math.max(((180 * e.movementX) / (Math.PI * cursor.clientHeight) * 1.2), -90), 90) * 3 + prevRot) / 4
+    cursor.style.left = `${e.clientX - (cursor.offsetWidth / 2)}px`;
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.transform = `rotate(${rotation}deg)`;
+
+
+});
+cursor.addEventListener("mousedown", e => {
+    e.preventDefault();
+});
+// setInterval(() => {
+//     fuelD = fuel.cloneNode(true);
+//     cursor.parentNode.appendChild(fuelD);
+//     fuelD.style.top = `${cursor.offsetTop + cursor.clientHeight}px`;
+//     fuelD.style.left = `${((cursor.offsetLeft + (cursor.offsetWidth / 2)) + (Math.random() - 0.5) * 10) - 3}px`;
+//     fuelD.style.backgroundColor = "rgb(63.75, 159.375, 175.3125)";
+//     fuelD.color = [63.75, 159.375, 175.3125]
+//     fuelD.vel = 0.1
+//     fuelD.time = 0
+// }, 100);
+
+// setInterval(() => {
+//     drops = document.querySelectorAll(".fuelDrop");
+//     drops.forEach(drop => {
+//         drop.time += 1;
+//         drop.vel += (grav * drop.time) * 0.00001; //v=u+at
+//         drop.style.top = `${drop.offsetTop + (drop.vel * drop.time)}px`
+//         drop.color[0] -= -7;
+//         drop.color[1] -= 2;
+//         drop.color[2] -= -0.5;
+//         drop.style.backgroundColor = `rgb(${drop.color[0]},${drop.color[1]}, ${drop.color[2]})`;
+//         drop.style.opacity = `${1 - ((drop.vel * drop.time) / (drop.vel * 50))}`
+//         if (drop.vel * drop.time >= 50) {
+//             drop.remove();
+//         }
+//     })
+// }, 10)
+
 var emojiMap = [
     "✨",
     "🌱",
@@ -21,7 +71,7 @@ var emojiMap = [
     "💙",
     "💜",
 ]
-
+let ids = 0;
 var audioMappings = {
     songs: {
         la: {
@@ -94,6 +144,9 @@ window.addEventListener('load', () => {
     window.addEventListener('touchmove', (e) => {
         e.preventDefault();
     });
+    window.addEventListener('touchstart', () => {
+        cursor.remove();
+    });
     //loading the audio files song names and images from the audio mappings object
     var songTemplate = document.querySelector(".ordinary");
     var app = document.querySelector(".app");
@@ -106,6 +159,8 @@ window.addEventListener('load', () => {
         songT.children[0].children[1].textContent = (audioMappings["songs"][key]["ft"] != "") ? "ft. " + audioMappings["songs"][key]["ft"] : "";
         songT.children[1].src = "./assets/music/" + audioMappings["songs"][key]["url"];
         songT.children[3].src = "./assets/imgs/" + audioMappings["songs"][key]["img"];
+        songT.id = audioMappings["songs"][key]["name"];
+        ids += 1;
 
         app.appendChild(songT);
 
@@ -117,6 +172,7 @@ window.addEventListener('load', () => {
         songT.children[1].src = "./assets/beats/" + audioMappings["beats"][beatKeys[i]]["url"];
         songT.children[3].remove();
         songT.children[0].children[0].classList.add("beat");
+        songT.id = audioMappings["beats"][beatKeys[i]]["url"].slice(0, -4);
         if (i == beatKeys.length - 1) {
             songT.children[2].remove();
         }
@@ -152,6 +208,8 @@ window.addEventListener('load', () => {
         loader.classList.add("fadeOut");
         setTimeout(() => { loader.style.display = 'none' }, 500)
         scrollTo(0, 0);
+
+        location.href == location.origin + "/" ? {} : location.href = location.href;
         audios[0].play();
         volInc = setInterval(() => {
             audios[0].volume = audios[0].volume + 0.05;
@@ -182,6 +240,7 @@ window.addEventListener('load', () => {
                         song.children[1].pause();
                     } else {
                         song.children[1].play();
+                        window.nowplaying = song.id;
                     }
                 }
 
