@@ -59,7 +59,7 @@ var audioMappings = {
         new: false,
         name: "eternal mob",
         ft: "",
-        preview: "vidpack.wav",
+        preview: "vidPack.wav",
         img: "emob.jpeg",
         date: [10, 9, 2020], // dd/mm/yyyy
         links: {
@@ -74,7 +74,7 @@ var audioMappings = {
         eternalmob: {
             name: "eternal mob - EP",
             ft: "",
-            url: "vidpack.wav",
+            url: "vidPack.wav",
             img: "emob.jpeg",
             link: "https://fanlik.to/eternalmob"
         },
