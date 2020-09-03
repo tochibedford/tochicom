@@ -382,7 +382,7 @@
     -ms-user-select: none;
     user-select: none;
     touch-action: none;
-     cursor: none; 
+    cursor: none;
 }
 
 .cursorShell {
@@ -450,6 +450,7 @@ body {
     font-size: 2em;
     z-index: 200;
     transition: color 0.5s;
+    margin-bottom: 0.1em;
 }
 
 .down:hover {
@@ -483,6 +484,7 @@ body {
     font-size: 1em;
     padding: 0.5em;
     color: #cccccc;
+    text-align: center;
 }
 
 a {
@@ -537,4 +539,94 @@ img {
 
 .beat {
     font-size: 10em;
+}
+
+.date {
+    display: inline;
+    text-align: center;
+}
+
+.days::after {
+    content: " days :";
+}
+
+.hours::after {
+    content: " hours :";
+}
+
+.minutes::after {
+    content: " minutes";
+}
+
+
+/* .release .mainText,
+.release .infoText,
+.release .date {
+    color: rgb(255, 255, 255) !important;
+} */
+
+.rel {
+    z-index: 100000;
+    font-size: 3em;
+}
+
+
+/* .rel::after {
+    content: "while we wait, checkout other content";
+    width: 200px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.4em;
+    font-weight: 300;
+    display: block;
+    animation: none;
+} */
+
+.shareButton {
+    border: dashed 2px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    z-index: 5000;
+    transition: color 0.5s;
+    margin-bottom: 5em;
+}
+
+.fanLink {
+    border: dashed 2px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    z-index: 5000;
+    transition: color 0.5s;
+    padding: 2px 0px 2px 0px;
+    margin-bottom: 2px;
+}
+
+.fanLink:hover {
+    color: rgb(2, 158, 197);
+}
+
+.shareButton i {
+    font-size: 1.5em;
+    z-index: 5000;
+    transition: color 0.5s;
+}
+
+.shareButton:hover {
+    color: rgb(2, 158, 197);
+}
+
+@media only screen and (max-width: 600px) {
+    .date {
+        display: block;
+        margin-bottom: 0.5em;
+    }
+    .days::after {
+        content: " days";
+    }
+    .hours::after {
+        content: " hours";
+    }
+    .minutes::after {
+        content: " minutes";
+    }
 }
