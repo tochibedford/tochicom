@@ -18,8 +18,20 @@ router.use(function(req, res, next) {
     // continue doing what we were doing and go to the route
     next();
 });
-
+app.use((req, res, next) => {
+    if (process.env.NODE_ENV === 'production') {
+        if (req.headers['x-forwarded-proto'] !== 'https')
+        // the statement for performing our redirection
+            return res.redirect('https://' + req.headers.host + req.url);
+        else {
+            return next();
+        }
+    } else {
+        return next();
+    }
+});
 app.use(router)
+
 app.use(express.static('src', optionsMain))
 
 router.get("/", (req, res) => {
