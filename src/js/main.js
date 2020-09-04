@@ -120,7 +120,7 @@ var audioMappings = {
             prod: "tochi"
         },
         2: {
-            url: "lol.wav",
+            url: "lol.mp3",
             prod: "tochi, john wav"
         },
         3: {
@@ -281,16 +281,16 @@ window.addEventListener('load', () => {
     var loadView = (view) => {
         if (view == "music") {
             if (audioMappings.release.new) {
-                setTimeout(() => { scrollTo(0, (document.querySelector(".down").parentNode.getBoundingClientRect().height) * 2) }, 300);
+                setTimeout(() => { scrollTo({ left: 0, top: (document.querySelector(".down").parentNode.getBoundingClientRect().height) * 2, behavior: 'smooth' }) }, 300);
             } else {
-                setTimeout(() => { scrollTo(0, (document.querySelector(".down").parentNode.getBoundingClientRect().height)) }, 300);
+                setTimeout(() => { scrollTo({ left: 0, top: (document.querySelector(".down").parentNode.getBoundingClientRect().height), behavior: 'smooth' }) }, 300);
             }
 
         } else if (view == "beats") {
             if (audioMappings.release.new) {
-                setTimeout(() => { scrollTo(0, (document.querySelector(".down").parentNode.getBoundingClientRect().height) * (songKeys.length + 2)) }, 300);
+                setTimeout(() => { scrollTo({ left: 0, top: (document.querySelector(".down").parentNode.getBoundingClientRect().height) * (songKeys.length + 2), behavior: 'smooth' }) }, 300);
             } else {
-                setTimeout(() => { scrollTo(0, (document.querySelector(".down").parentNode.getBoundingClientRect().height) * (songKeys.length + 1)) }, 300);
+                setTimeout(() => { scrollTo({ left: 0, top: (document.querySelector(".down").parentNode.getBoundingClientRect().height) * (songKeys.length + 1), behavior: 'smooth' }) }, 300);
             }
         }
     };
@@ -313,7 +313,7 @@ window.addEventListener('load', () => {
         var loader = document.querySelector(".loader");
         loader.classList.add("fadeOut");
         setTimeout(() => { loader.style.display = 'none' }, 500)
-        scrollTo(0, 0);
+        scrollTo({ left: 0, top: 0, behavior: 'smooth' });
 
         location.href == location.origin + "/" ? {} : location.href = location.href;
         audios[0].play();
@@ -357,14 +357,14 @@ window.addEventListener('load', () => {
         downs = document.querySelectorAll(".down");
         downs.forEach(down => {
             down.addEventListener("click", (e) => {
-                scrollBy(0, (down.parentNode.getBoundingClientRect().height));
+                scrollBy({ left: 0, top: (down.parentNode.getBoundingClientRect().height), behavior: 'smooth' });
             })
         })
 
         //back to Top
         toTop = document.querySelector(".toTop");
         toTop.addEventListener('click', (e) => {
-            scrollTo(0, 0);
+            scrollTo({ left: 0, top: 0, behavior: 'smooth' });
         })
 
 
