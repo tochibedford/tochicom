@@ -76,7 +76,7 @@ var audioMappings = {
             ft: "",
             url: "vidPack.wav",
             img: "emob.jpeg",
-            link: "https://fanlik.to/eternalmob"
+            link: "https://fanlink.to/eternalmob"
         },
         disintegrate: {
             name: "disintegrate",
